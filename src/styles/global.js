@@ -13,7 +13,6 @@ export default createGlobalStyle`
  }
 
  body {
-  knob
   background: rgba(247,101,164,1);
   background: -moz-linear-gradient(-45deg, rgba(247,101,164,1) 0%, rgba(228,70,71,1) 100%);
   background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(247,101,164,1)), color-stop(100%, rgba(228,70,71,1)));
