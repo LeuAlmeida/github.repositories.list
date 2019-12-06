@@ -1,5 +1,12 @@
 import React, { Component } from 'react';
-import { FaGithubAlt, FaPlus, FaSpinner, FaEye, FaCheck } from 'react-icons/fa';
+import {
+  FaGithubAlt,
+  FaPlus,
+  FaSpinner,
+  FaEye,
+  FaCheck,
+  FaTrashAlt,
+} from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 import api from '../../services/api';
@@ -70,6 +77,14 @@ export default class Main extends Component {
     }
   };
 
+  handleDelete = e => {
+    const { repositories } = this.state;
+
+    const index = repositories.indexOf(e.target.value);
+
+    console.log(index);
+  };
+
   render() {
     const { newRepo, repositories, loading, error } = this.state;
 
@@ -102,12 +117,15 @@ export default class Main extends Component {
 
         <List>
           {repositories.map(repository => (
-            <li key={repository.name}>
+            <li key={repository.name} value={repository}>
               <FaCheck color="#FFF" size={14} />
               <span>{repository.name}</span>
               <Link to={`/repository/${encodeURIComponent(repository.name)}`}>
                 <FaEye color="#FFF" size={18} />
               </Link>
+              <button type="button" onClick={this.handleDelete}>
+                <FaTrashAlt color="#FFF" size={18} />
+              </button>
             </li>
           ))}
         </List>
