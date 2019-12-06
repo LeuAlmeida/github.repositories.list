@@ -80,9 +80,9 @@ export default class Main extends Component {
   handleDelete = item => {
     const { repositories } = this.state;
 
-    const thisRepo = repositories.indexOf(item.target.value);
-
-    console.log(thisRepo);
+    this.setState({
+      repositories: repositories.filter(repo => repo !== item),
+    });
   };
 
   handleClean = () => {
@@ -141,7 +141,10 @@ export default class Main extends Component {
               <Link to={`/repository/${encodeURIComponent(repository.name)}`}>
                 <FaEye color="#FFF" size={18} />
               </Link>
-              <button type="button" onClick={item => this.handleDelete(item)}>
+              <button
+                type="button"
+                onClick={() => this.handleDelete(repository)}
+              >
                 <FaTrashAlt color="#FFF" size={18} />
               </button>
             </li>
