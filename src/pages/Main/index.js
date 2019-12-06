@@ -16,7 +16,7 @@ export default function Main() {
         <input type="text" placeholder="Adicionar repositório" />
 
         <SubmitButton disabled>
-          <FaPlus color="#FFF" size={14} />
+          <FaPlus color="#ec536c" size={14} />
         </SubmitButton>
       </Form>
     </Container>
