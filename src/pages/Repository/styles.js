@@ -65,6 +65,7 @@ export const IssueList = styled.ul`
       height: 36px;
       border-radius: 50%;
       border: 2px solid #0000000f;
+      background: #fff;
     }
 
     div {
