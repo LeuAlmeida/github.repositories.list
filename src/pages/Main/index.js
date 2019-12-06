@@ -8,6 +8,7 @@ import {
   FaTrashAlt,
 } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import ReactTooltip from 'react-tooltip';
 
 import api from '../../services/api';
 
@@ -113,20 +114,31 @@ export default class Main extends Component {
             onChange={this.handleInputChange}
           />
 
-          <SubmitButton loading={loading ? 1 : 0}>
+          <SubmitButton data-tip data-for="addRepo" loading={loading ? 1 : 0}>
             {loading ? (
               <FaSpinner color="#ec536c" size={14} />
             ) : (
               <FaPlus color="#ec536c" size={14} />
             )}
+            <ReactTooltip id="addRepo" type="dark" effect="solid">
+              Adicionar repositório
+            </ReactTooltip>
           </SubmitButton>
 
-          <CleanButton onClick={this.handleClean} loading={loading ? 1 : 0}>
+          <CleanButton
+            data-tip
+            data-for="cleanRepo"
+            onClick={this.handleClean}
+            loading={loading ? 1 : 0}
+          >
             {loading ? (
               <FaSpinner color="#ec536c" size={14} />
             ) : (
               <FaTrashAlt color="#ec536c" size={14} />
             )}
+            <ReactTooltip id="cleanRepo" type="dark" effect="solid">
+              Remover todos repositórios
+            </ReactTooltip>
           </CleanButton>
         </Form>
         <ErrorMessage>
@@ -138,15 +150,28 @@ export default class Main extends Component {
             <li key={repository.name} value={repositories}>
               <FaCheck color="#FFF" size={14} />
               <span>{repository.name}</span>
-              <Link to={`/repository/${encodeURIComponent(repository.name)}`}>
+              <Link
+                data-tip
+                data-for="viewRepo"
+                to={`/repository/${encodeURIComponent(repository.name)}`}
+              >
                 <FaEye color="#FFF" size={18} />
               </Link>
+              <ReactTooltip id="viewRepo" type="dark" effect="solid">
+                Visualizar repositório
+              </ReactTooltip>
               <button
+                data-tip
+                data-for="removeRepo"
                 type="button"
+                title="Remover todos os repositórios"
                 onClick={() => this.handleDelete(repository)}
               >
                 <FaTrashAlt color="#FFF" size={18} />
               </button>
+              <ReactTooltip id="removeRepo" type="dark" effect="solid">
+                Remover repositório
+              </ReactTooltip>
             </li>
           ))}
         </List>
