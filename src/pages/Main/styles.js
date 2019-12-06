@@ -13,6 +13,7 @@ export const Container = styled.div`
     flex-direction: row;
     color: #fff;
     font-family: 'Raleway', cursive;
+    text-transform: uppercase;
   }
 
   svg {
@@ -92,6 +93,14 @@ export const List = styled.ul`
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    color: #fff;
+    text-transform: capitalize;
+
+    span {
+      padding-left: 15px;
+      flex: 1;
+    }
+
     & + li {
       border-top: 1px solid #fff6;
     }

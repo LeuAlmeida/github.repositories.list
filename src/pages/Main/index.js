@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FaGithubAlt, FaPlus, FaSpinner } from 'react-icons/fa';
+import { FaGithubAlt, FaPlus, FaSpinner, FaEye, FaCheck } from 'react-icons/fa';
 
 import api from '../../services/api';
 
@@ -84,8 +84,11 @@ export default class Main extends Component {
         <List>
           {repositories.map(repository => (
             <li key={repository.name}>
+              <FaCheck color="#FFF" size={14} />
               <span>{repository.name}</span>
-              <a href="#">Detalhes</a>
+              <a href="#">
+                <FaEye color="#FFF" size={18} />
+              </a>
             </li>
           ))}
         </List>
