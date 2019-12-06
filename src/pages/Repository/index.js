@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import api from '../../services/api';
 
 import Container from '../../components/Container';
-import { Loading } from './styles';
+import { Loading, Owner } from './styles';
 
 export default class Repository extends Component {
   static propTypes = {
@@ -51,7 +51,11 @@ export default class Repository extends Component {
 
     return (
       <Container>
-        <h1>Repository</h1>
+        <Owner>
+          <img src={repository.owner.avatar_url} alt={repository.owner.login} />
+          <h1>{repository.name}</h1>
+          <p>{repository.description}</p>
+        </Owner>
       </Container>
     );
   }
