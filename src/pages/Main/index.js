@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { FaGithubAlt, FaPlus, FaSpinner, FaEye, FaCheck } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 import api from '../../services/api';
 
@@ -86,9 +87,9 @@ export default class Main extends Component {
             <li key={repository.name}>
               <FaCheck color="#FFF" size={14} />
               <span>{repository.name}</span>
-              <a href="#">
+              <Link to={`/repository/${encodeURIComponent(repository.name)}`}>
                 <FaEye color="#FFF" size={18} />
-              </a>
+              </Link>
             </li>
           ))}
         </List>
