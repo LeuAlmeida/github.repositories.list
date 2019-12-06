@@ -62,7 +62,6 @@ export default class Repository extends Component {
           <h1>{repository.name}</h1>
           <p>{repository.description}</p>
         </Owner>
-
         <IssueList>
           {issues.map(issue => (
             <li key={String(issue.id)}>
