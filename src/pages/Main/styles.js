@@ -13,6 +13,10 @@ export const Form = styled.form`
     padding: 10px 15px;
     font-size: 16px;
     color: #fff;
+    ${props =>
+      props.error
+        ? 'box-shadow: 0px -1px 10px 0px white;border-radius: 30px;'
+        : ''}
   }
 
   input::placeholder {
@@ -88,5 +92,19 @@ export const List = styled.ul`
       color: #fff;
       text-decoration: none;
     }
+  }
+`;
+
+export const ErrorMessage = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 20px;
+
+  span {
+    font-family: 'Raleway', cursive;
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: bold;
   }
 `;
