@@ -4,10 +4,9 @@ module.exports = {
     es6: true,
   },
   extends: [
-    'plugin:react/recommended',
     'airbnb',
     'prettier',
-    'prettier/react',
+    'prettier/react'
   ],
   globals: {
     Atomics: 'readonly',
@@ -23,7 +22,7 @@ module.exports = {
   },
   plugins: [
     'react',
-    'prettier',
+    'prettier'
   ],
   rules: {
     'prettier/prettier': 'error',
@@ -32,5 +31,6 @@ module.exports = {
       { extensions: ['.jsx', '.js'] }
     ],
     'import/prefer-default-export': 'off'
+
   },
 };
