@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { FaChevronLeft } from 'react-icons/fa';
 import api from '../../services/api';
 
 import Container from '../../components/Container';
@@ -52,6 +54,10 @@ export default class Repository extends Component {
     return (
       <Container>
         <Owner>
+          <Link to="/">
+            <FaChevronLeft color="#FFF" size={14} />
+            Voltar aos repositórios
+          </Link>
           <img src={repository.owner.avatar_url} alt={repository.owner.login} />
           <h1>{repository.name}</h1>
           <p>{repository.description}</p>
