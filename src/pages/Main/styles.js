@@ -2,9 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   max-width: 700px;
-  /* background: #ffffff29; */
   border-radius: 4px;
-  /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); */
   padding: 30px;
   margin: 80px auto;
 
@@ -29,12 +27,10 @@ export const Form = styled.form`
 
   input {
     flex: 1;
-    /* border: 1px solid #eee; */
     border: 0px;
     border-bottom: 1px solid #ffffff69;
     background: transparent;
     padding: 10px 15px;
-    /* border-radius: 4px; */
     font-size: 16px;
     color: #fff;
   }
@@ -44,9 +40,10 @@ export const Form = styled.form`
   }
 `;
 
-export const SubmitButton = styled.button.attrs({
-  type: 'button',
-})`
+export const SubmitButton = styled.button.attrs(props => ({
+  type: 'submit',
+  disabled: props.loading,
+}))`
   background: #fff;
   border: 0;
   padding: 0 14px;
@@ -56,6 +53,11 @@ export const SubmitButton = styled.button.attrs({
   display: flex;
   justify-content: center;
   align-items: center;
+
+  &[disabled] {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
 
   svg {
     margin-right: 0px;
