@@ -32,5 +32,6 @@ module.exports = {
     ],
     'import/prefer-default-export': 'off',
     'react/state-in-constructor': ['warn', 'never'],
+    'jsx-a11y/anchor-is-valid': 0,
   },
 };
