@@ -9,14 +9,12 @@ export const Form = styled.form`
     flex: 1;
     border: 0px;
     border-bottom: 1px solid #ffffff69;
+    ${props => (props.error ? 'border: 1px solid #fff;' : '')}
     background: transparent;
     padding: 10px 15px;
     font-size: 16px;
     color: #fff;
-    ${props =>
-      props.error
-        ? 'box-shadow: 0px -1px 10px 0px white;border-radius: 30px;'
-        : ''}
+    ${props => (props.error ? 'border-radius: 30px;' : '')}
   }
 
   input::placeholder {
@@ -99,11 +97,11 @@ export const ErrorMessage = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  justify-content: center;
   padding-top: 20px;
 
   span {
     font-family: 'Raleway', cursive;
-    text-transform: uppercase;
     color: #fff;
     font-weight: bold;
   }

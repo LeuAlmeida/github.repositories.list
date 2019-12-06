@@ -97,7 +97,7 @@ export default class Main extends Component {
           </SubmitButton>
         </Form>
         <ErrorMessage>
-          <span>{error ? 'Ocorreu um erro.' : undefined}</span>
+          <span>{error ? 'Ops! Algo está errado.' : undefined}</span>
         </ErrorMessage>
 
         <List>
