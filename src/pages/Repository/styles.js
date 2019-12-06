@@ -43,3 +43,5 @@ export const Owner = styled.header`
     max-width: 400px;
   }
 `;
+
+export const IssueList = styled.ul``;
