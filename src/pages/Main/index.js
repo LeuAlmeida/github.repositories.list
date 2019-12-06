@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom';
 import api from '../../services/api';
 
 import Container from '../../components/Container';
-import { Form, SubmitButton, List, ErrorMessage } from './styles';
+import { Form, SubmitButton, CleanButton, List, ErrorMessage } from './styles';
 
 export default class Main extends Component {
   state = {
@@ -77,12 +77,22 @@ export default class Main extends Component {
     }
   };
 
-  handleDelete = e => {
+  handleDelete = item => {
     const { repositories } = this.state;
 
-    const index = repositories.indexOf(e.target.value);
+    const thisRepo = repositories.indexOf(item.target.value);
 
-    console.log(index);
+    console.log(thisRepo);
+  };
+
+  handleClean = () => {
+    const { repositories } = this.state;
+    this.setState({ loading: true });
+
+    this.setState({
+      repositories: repositories.splice(0, 0),
+      loading: false,
+    });
   };
 
   render() {
@@ -110,6 +120,14 @@ export default class Main extends Component {
               <FaPlus color="#ec536c" size={14} />
             )}
           </SubmitButton>
+
+          <CleanButton onClick={this.handleClean} loading={loading ? 1 : 0}>
+            {loading ? (
+              <FaSpinner color="#ec536c" size={14} />
+            ) : (
+              <FaTrashAlt color="#ec536c" size={14} />
+            )}
+          </CleanButton>
         </Form>
         <ErrorMessage>
           <span>{error ? 'Ops! Algo está errado.' : undefined}</span>
@@ -117,13 +135,13 @@ export default class Main extends Component {
 
         <List>
           {repositories.map(repository => (
-            <li key={repository.name} value={repository}>
+            <li key={repository.name} value={repositories}>
               <FaCheck color="#FFF" size={14} />
               <span>{repository.name}</span>
               <Link to={`/repository/${encodeURIComponent(repository.name)}`}>
                 <FaEye color="#FFF" size={18} />
               </Link>
-              <button type="button" onClick={this.handleDelete}>
+              <button type="button" onClick={item => this.handleDelete(item)}>
                 <FaTrashAlt color="#FFF" size={18} />
               </button>
             </li>
