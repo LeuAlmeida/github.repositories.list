@@ -120,3 +120,12 @@ export const IssueList = styled.ul`
     }
   }
 `;
+
+export const IssueTitle = styled.h2`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 30px;
+  color: #fff;
+  text-transform: uppercase;
+`;
