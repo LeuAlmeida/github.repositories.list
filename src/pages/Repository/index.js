@@ -74,7 +74,17 @@ export default class Repository extends Component {
         </Owner>
         <IssueList>
           <IssueTitle>Questões</IssueTitle>
-          <IssueSelection />
+          <IssueSelection>
+            <div>
+              <button type="button">Todas</button>
+            </div>
+            <div>
+              <button type="button">Abertas</button>
+            </div>
+            <div>
+              <button type="button">Fechadas</button>
+            </div>
+          </IssueSelection>
           {issues.map(issue => (
             <li key={String(issue.id)}>
               <img src={issue.user.avatar_url} alt={issue.user.login} />
