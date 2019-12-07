@@ -160,3 +160,36 @@ export const IssueSelection = styled.div`
     }
   }
 `;
+
+export const PageActions = styled.div`
+  padding-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  span {
+    color: #fff;
+    font-weight: bold;
+  }
+
+  button {
+    transition: opacity 0.25s ease-out;
+    border-radius: 40px;
+    outline: 0;
+    border: 0;
+    padding: 10px 10px;
+    background: #fff;
+
+    &:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+    }
+
+    svg {
+      margin: 0;
+      display: flex;
+      align-self: center;
+      justify-self: center;
+    }
+  }
+`;
