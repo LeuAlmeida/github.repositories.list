@@ -5,7 +5,13 @@ import { FaChevronLeft, FaSpinner } from 'react-icons/fa';
 import api from '../../services/api';
 
 import Container from '../../components/Container';
-import { Loading, Owner, IssueList } from './styles';
+import {
+  Loading,
+  Owner,
+  IssueList,
+  IssueTitle,
+  IssueSelection,
+} from './styles';
 
 export default class Repository extends Component {
   static propTypes = {
@@ -67,6 +73,8 @@ export default class Repository extends Component {
           <p>{repository.description}</p>
         </Owner>
         <IssueList>
+          <IssueTitle>Questões</IssueTitle>
+          <IssueSelection />
           {issues.map(issue => (
             <li key={String(issue.id)}>
               <img src={issue.user.avatar_url} alt={issue.user.login} />
