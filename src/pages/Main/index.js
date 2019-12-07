@@ -120,7 +120,7 @@ export default class Main extends Component {
             ) : (
               <FaPlus color="#ec536c" size={14} />
             )}
-            <ReactTooltip id="addRepo" type="dark" effect="solid">
+            <ReactTooltip id="addRepo" type="light" effect="solid">
               Adicionar repositório
             </ReactTooltip>
           </SubmitButton>
@@ -136,7 +136,7 @@ export default class Main extends Component {
             ) : (
               <FaTrashAlt color="#ec536c" size={14} />
             )}
-            <ReactTooltip id="cleanRepo" type="dark" effect="solid">
+            <ReactTooltip id="cleanRepo" type="light" effect="solid">
               Remover todos repositórios
             </ReactTooltip>
           </CleanButton>
@@ -157,7 +157,7 @@ export default class Main extends Component {
               >
                 <FaEye color="#FFF" size={18} />
               </Link>
-              <ReactTooltip id="viewRepo" type="dark" effect="solid">
+              <ReactTooltip id="viewRepo" type="light" effect="solid">
                 Visualizar repositório
               </ReactTooltip>
               <button
@@ -169,7 +169,7 @@ export default class Main extends Component {
               >
                 <FaTrashAlt color="#FFF" size={18} />
               </button>
-              <ReactTooltip id="removeRepo" type="dark" effect="solid">
+              <ReactTooltip id="removeRepo" type="light" effect="solid">
                 Remover repositório
               </ReactTooltip>
             </li>
