@@ -6,6 +6,7 @@ import {
   FaEye,
   FaCheck,
   FaTrashAlt,
+  FaBroom,
 } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import ReactTooltip from 'react-tooltip';
@@ -134,10 +135,10 @@ export default class Main extends Component {
             {loading ? (
               <FaSpinner color="#ec536c" size={14} />
             ) : (
-              <FaTrashAlt color="#ec536c" size={14} />
+              <FaBroom color="#ec536c" size={14} />
             )}
             <ReactTooltip id="cleanRepo" type="light" effect="solid">
-              Remover todos repositórios
+              Limpar todos repositórios
             </ReactTooltip>
           </CleanButton>
         </Form>
