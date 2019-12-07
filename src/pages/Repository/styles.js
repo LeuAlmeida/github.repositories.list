@@ -148,5 +148,15 @@ export const IssueSelection = styled.div`
       font-size: 14px;
       text-transform: uppercase;
     }
+
+    &:nth-child(${props => props.active + 1}) {
+      background: #fff;
+      border-radius: 4px;
+
+      button {
+        border-bottom: 0;
+        color: #f15b85;
+      }
+    }
   }
 `;
