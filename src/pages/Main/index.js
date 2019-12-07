@@ -14,6 +14,8 @@ import ReactTooltip from 'react-tooltip';
 import api from '../../services/api';
 
 import Container from '../../components/Container';
+import Copyrights from '../../components/Copyrights';
+
 import { Form, SubmitButton, CleanButton, List, ErrorMessage } from './styles';
 
 export default class Main extends Component {
@@ -101,82 +103,85 @@ export default class Main extends Component {
     const { newRepo, repositories, loading, error } = this.state;
 
     return (
-      <Container>
-        <h1>
-          <FaGithubAlt />
-          Repositórios
-        </h1>
+      <>
+        <Container>
+          <h1>
+            <FaGithubAlt />
+            Repositórios
+          </h1>
 
-        <Form onSubmit={this.handleSubmit} error={error}>
-          <input
-            type="text"
-            placeholder="Adicionar repositório"
-            value={newRepo}
-            onChange={this.handleInputChange}
-          />
+          <Form onSubmit={this.handleSubmit} error={error}>
+            <input
+              type="text"
+              placeholder="Adicionar repositório"
+              value={newRepo}
+              onChange={this.handleInputChange}
+            />
 
-          <SubmitButton data-tip data-for="addRepo" loading={loading ? 1 : 0}>
-            {loading ? (
-              <FaSpinner color="#ec536c" size={14} />
-            ) : (
-              <FaPlus color="#ec536c" size={14} />
-            )}
-            <ReactTooltip id="addRepo" type="light" effect="solid">
-              Adicionar repositório
-            </ReactTooltip>
-          </SubmitButton>
-
-          <CleanButton
-            data-tip
-            data-for="cleanRepo"
-            onClick={this.handleClean}
-            loading={loading ? 1 : 0}
-          >
-            {loading ? (
-              <FaSpinner color="#ec536c" size={14} />
-            ) : (
-              <FaBroom color="#ec536c" size={14} />
-            )}
-            <ReactTooltip id="cleanRepo" type="light" effect="solid">
-              Limpar todos repositórios
-            </ReactTooltip>
-          </CleanButton>
-        </Form>
-        <ErrorMessage>
-          <span>{error ? 'Ops! Algo está errado.' : undefined}</span>
-        </ErrorMessage>
-
-        <List>
-          {repositories.map(repository => (
-            <li key={repository.name} value={repositories}>
-              <FaCheck color="#FFF" size={14} />
-              <span>{repository.name}</span>
-              <Link
-                data-tip
-                data-for="viewRepo"
-                to={`/repository/${encodeURIComponent(repository.name)}`}
-              >
-                <FaEye color="#FFF" size={18} />
-              </Link>
-              <ReactTooltip id="viewRepo" type="light" effect="solid">
-                Visualizar repositório
+            <SubmitButton data-tip data-for="addRepo" loading={loading ? 1 : 0}>
+              {loading ? (
+                <FaSpinner color="#ec536c" size={14} />
+              ) : (
+                <FaPlus color="#ec536c" size={14} />
+              )}
+              <ReactTooltip id="addRepo" type="light" effect="solid">
+                Adicionar repositório
               </ReactTooltip>
-              <button
-                data-tip
-                data-for="removeRepo"
-                type="button"
-                title="Remover todos os repositórios"
-                onClick={() => this.handleDelete(repository)}
-              >
-                <FaTrashAlt color="#FFF" size={18} />
-              </button>
-              <ReactTooltip id="removeRepo" type="light" effect="solid">
-                Remover repositório
+            </SubmitButton>
+
+            <CleanButton
+              data-tip
+              data-for="cleanRepo"
+              onClick={this.handleClean}
+              loading={loading ? 1 : 0}
+            >
+              {loading ? (
+                <FaSpinner color="#ec536c" size={14} />
+              ) : (
+                <FaBroom color="#ec536c" size={14} />
+              )}
+              <ReactTooltip id="cleanRepo" type="light" effect="solid">
+                Limpar todos repositórios
               </ReactTooltip>
-            </li>
-          ))}
-        </List>
-      </Container>
+            </CleanButton>
+          </Form>
+          <ErrorMessage>
+            <span>{error ? 'Ops! Algo está errado.' : undefined}</span>
+          </ErrorMessage>
+
+          <List>
+            {repositories.map(repository => (
+              <li key={repository.name} value={repositories}>
+                <FaCheck color="#FFF" size={14} />
+                <span>{repository.name}</span>
+                <Link
+                  data-tip
+                  data-for="viewRepo"
+                  to={`/repository/${encodeURIComponent(repository.name)}`}
+                >
+                  <FaEye color="#FFF" size={18} />
+                </Link>
+                <ReactTooltip id="viewRepo" type="light" effect="solid">
+                  Visualizar repositório
+                </ReactTooltip>
+                <button
+                  data-tip
+                  data-for="removeRepo"
+                  type="button"
+                  title="Remover todos os repositórios"
+                  onClick={() => this.handleDelete(repository)}
+                >
+                  <FaTrashAlt color="#FFF" size={18} />
+                </button>
+                <ReactTooltip id="removeRepo" type="light" effect="solid">
+                  Remover repositório
+                </ReactTooltip>
+              </li>
+            ))}
+          </List>
+        </Container>
+        <Copyrights />
+      </>
     );
   }
 }

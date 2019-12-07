@@ -5,6 +5,7 @@ import { FaChevronLeft, FaChevronRight, FaSpinner } from 'react-icons/fa';
 import api from '../../services/api';
 
 import Container from '../../components/Container';
+import Copyrights from '../../components/Copyrights';
 import {
   Loading,
   Owner,
@@ -108,64 +109,73 @@ export default class Repository extends Component {
     }
 
     return (
-      <Container>
-        <Owner>
-          <Link to="/">
-            <FaChevronLeft color="#FFF" size={14} />
-            Voltar aos repositórios
-          </Link>
-          <img src={repository.owner.avatar_url} alt={repository.owner.login} />
-          <h1>{repository.name}</h1>
-          <p>{repository.description}</p>
-        </Owner>
+      <>
+        <Container>
+          <Owner>
+            <Link to="/">
+              <FaChevronLeft color="#FFF" size={14} />
+              Voltar aos repositórios
+            </Link>
+            <img
+              src={repository.owner.avatar_url}
+              alt={repository.owner.login}
+            />
+            <h1>{repository.name}</h1>
+            <p>{repository.description}</p>
+          </Owner>
 
-        <IssueList>
-          <IssueTitle>Filtrar questões do repositório</IssueTitle>
-          <IssueSelection active={filterIndex}>
-            {filters.map((filter, index) => (
-              <div key={filter.label}>
-                <button type="button" onClick={() => this.handleFilter(index)}>
-                  {filter.label}
-                </button>
-              </div>
-            ))}
-          </IssueSelection>
-
-          {issues.map(issue => (
-            <li key={String(issue.id)}>
-              <img src={issue.user.avatar_url} alt={issue.user.login} />
-              <div>
-                <strong>
-                  <a
-                    href={issue.html_url}
-                    target="_blank"
-                    rel="noopener noreferrer"
+          <IssueList>
+            <IssueTitle>Filtrar questões do repositório</IssueTitle>
+            <IssueSelection active={filterIndex}>
+              {filters.map((filter, index) => (
+                <div key={filter.label}>
+                  <button
+                    type="button"
+                    onClick={() => this.handleFilter(index)}
                   >
-                    {issue.title}
-                  </a>
-                  {issue.labels.map(label => (
-                    <span key={String(label.id)}>{label.name}</span>
-                  ))}
-                </strong>
-                <p>{issue.user.login}</p>
-              </div>
-            </li>
-          ))}
-        </IssueList>
-        <PageActions>
-          <button
-            type="button"
-            disabled={page < 2}
-            onClick={() => this.handlePage('back')}
-          >
-            <FaChevronLeft color="#e84c58" size={18} />
-          </button>
-          <span>Página {page}</span>
-          <button type="button" onClick={() => this.handlePage('next')}>
-            <FaChevronRight color="#e84c58" size={18} />
-          </button>
-        </PageActions>
-      </Container>
+                    {filter.label}
+                  </button>
+                </div>
+              ))}
+            </IssueSelection>
+
+            {issues.map(issue => (
+              <li key={String(issue.id)}>
+                <img src={issue.user.avatar_url} alt={issue.user.login} />
+                <div>
+                  <strong>
+                    <a
+                      href={issue.html_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {issue.title}
+                    </a>
+                    {issue.labels.map(label => (
+                      <span key={String(label.id)}>{label.name}</span>
+                    ))}
+                  </strong>
+                  <p>{issue.user.login}</p>
+                </div>
+              </li>
+            ))}
+          </IssueList>
+          <PageActions>
+            <button
+              type="button"
+              disabled={page < 2}
+              onClick={() => this.handlePage('back')}
+            >
+              <FaChevronLeft color="#e84c58" size={18} />
+            </button>
+            <span>Página {page}</span>
+            <button type="button" onClick={() => this.handlePage('next')}>
+              <FaChevronRight color="#e84c58" size={18} />
+            </button>
+          </PageActions>
+        </Container>
+        <Copyrights />
+      </>
     );
   }
 }
