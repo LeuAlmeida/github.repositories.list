@@ -107,11 +107,11 @@ export const List = styled.ul`
     justify-content: space-between;
     align-items: center;
     color: #fff;
-    text-transform: capitalize;
 
     span {
       padding-left: 15px;
       flex: 1;
+      text-transform: capitalize;
     }
 
     & + li {
