@@ -29,6 +29,8 @@ List how many repositories do you want. With this you can list repositories and 
 <img src="tmp/repo.gif" />
 </p>
 
+<a href="https://githubrepositorieslist.herokuapp.com/" align="center">See application on Heroku</a>
+
 <hr />
 
 <h3>:electric_plug: Requeriments</h3>
