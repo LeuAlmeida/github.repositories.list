@@ -4,7 +4,7 @@ const Container = styled.div`
   max-width: 700px;
   border-radius: 4px;
   padding: 30px;
-  margin: 80px auto;
+  margin: 20px auto;
 
   h1 {
     font-size: 20px;
