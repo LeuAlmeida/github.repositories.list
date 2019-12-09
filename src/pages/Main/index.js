@@ -90,11 +90,10 @@ export default class Main extends Component {
   };
 
   handleClean = () => {
-    const { repositories } = this.state;
     this.setState({ loading: true });
 
     this.setState({
-      repositories: repositories.splice(0, 0),
+      repositories: [],
       loading: false,
     });
   };
